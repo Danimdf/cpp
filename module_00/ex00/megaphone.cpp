@@ -11,19 +11,15 @@
 /* ************************************************************************** */
 
 #include <iostream>
-using std::cout;
-using std::endl;
-using std::cin;
-using std::string;
 
 class Speaker {
 	public: 
-		void Print(string phrase)
+		void Print(std::string phrase)
 		{
-			cout << phrase << endl;
+			std::cout << phrase << std::endl;
 		}
 
-		int FtStrLen(string str)
+		int FtStrLen(std::string str)
 		{
 			int len = 0;
 
@@ -39,7 +35,7 @@ class Speaker {
 			return (c);
 		}
 
-		string ToUpperCase(string phrase)
+		std::string ToUpperCase(std::string phrase)
 		{
 			char temp;
 			int len = FtStrLen(phrase);
@@ -56,7 +52,7 @@ class Speaker {
 
 int main(int argc, char *argv[])
 {
-	string phraseSet;
+	std::string phraseSet;
 	Speaker speaker;
 	
 	if (argc != 2)
