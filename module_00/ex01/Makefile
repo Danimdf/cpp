@@ -1,8 +1,11 @@
-NAME	= phoneBook
+NAME	= phonebook
 CC		= c++
 CFLAGS	= -Wall -Werror -Wextra -std=c++98 -g -pedantic
 
-SRC = 
+SRC = 	main.cpp\
+		PhoneBook.cpp\
+
+VPATH	= srcs
 
 OBJ		= $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 OBJ_DIR	= ./obj
@@ -25,6 +28,7 @@ clean:
 
 fclean:	clean
 		$(RM) $(NAME)
+		rmdir $(OBJ_DIR)
 
 re:		fclean all
 
