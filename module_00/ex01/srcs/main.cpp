@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:33:21 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/11 23:46:10 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/12 03:12:01 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	std::string teste;
 	PhoneBook teste1;
 	Contact contact;
-	int numberContact = 1;
+	int numberContact = 0;
 
 	while (1)
 	{
@@ -28,14 +28,22 @@ int main()
 		getline(std::cin, teste);
 		if (!teste.compare("ADD"))
 		{
-			teste1.Print("Adicione um contato. Primeiro o nome:");
+			teste1.Print("Adicionando um contato. Primeiro nome:");
 			getline(std::cin, teste);
-			contact.name = teste;
-			teste1.Print("Agora o número do contato:");
+			contact.index = numberContact;
+			contact.firstName = teste;
+			teste1.Print("Sobrenome:");
 			getline(std::cin, teste);
-			contact.number = teste;
+			contact.lastName = teste;
+			teste1.Print("Agora o seu NickName:");
+			getline(std::cin, teste);
+			contact.nickName = teste;
 			teste1.Add(contact, numberContact);
 			numberContact++;
+		}
+		else if (!teste.compare("SEARCH"))
+		{
+			teste1.Search("oi");
 		}
 		else
 			std::exit(1);

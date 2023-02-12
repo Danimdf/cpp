@@ -8,8 +8,12 @@ class PhoneBook {
 		Contact contact[8];
 		void Print(std::string phrase);
 		void Add(Contact newContact, int i);
-		void Search(void);
+		void Search(std::string index);
 		bool ExitPhone(void);
+
+	private:
+		void setContact(Contact newContact, int i);
+		void SearchSpecificContact(std::string index);
 };
 
 #endif
