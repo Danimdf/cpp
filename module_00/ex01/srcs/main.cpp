@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:33:21 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/12 16:27:02 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:02:25 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include <sstream>
 
-std::string NumberToString(int number)
-{
-  std::ostringstream convert;
-  convert << number;
-  return convert.str();
-}
 
 int main()
 {
@@ -33,13 +26,13 @@ int main()
 	while (1)
 	{
 		teste1.Print("*************************************************************");
-		teste1.Print("Olá. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
+		teste1.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
 		getline(std::cin, teste);
 		if (!teste.compare("ADD"))
 		{
 			teste1.Print("Adicionando um contato. Primeiro nome:");
 			getline(std::cin, teste);
-			contact.index = NumberToString(numberContact);
+			contact.index = teste1.NumberToString(numberContact);
 			contact.firstName = teste;
 			teste1.Print("Sobrenome:");
 			getline(std::cin, teste);
@@ -51,10 +44,10 @@ int main()
 			numberContact++;
 		}
 		else if (!teste.compare("SEARCH"))
-		{
-			teste1.Search("oi");
-		}
+			teste1.Search("");
+		else if (!teste.compare("EXIT"))
+			teste1.ExitPhone();
 		else
-			std::exit(1);
+			teste1.Print("Por favor, digite corretamente a palavra da Ação! Lembre-se das letras maiúsculas!");
 	}
 }
