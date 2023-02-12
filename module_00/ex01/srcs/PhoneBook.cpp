@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/12 17:09:00 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/13 00:36:10 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,20 @@ std::string PhoneBook::NumberToString(int number)
   return convert.str();
 }
 
+int PhoneBook::StringToNumber(std::string str)
+{
+  int result;
+  std::istringstream convert(str);
+  convert >> result;
+  return result;
+}
+
 void PhoneBook::SearchSpecificContact(std::string index)
 {
-	int numberIndex = //Transformar str em int
+	int numberIndex = StringToNumber(index);
 	if (numberIndex > 8 || numberIndex < 0)
 	{
+		Print("*************************************************************");
 		Print("Esse index não existe em sua Agenda. Por favor, escolha conforme a tabela.");
 		Search("");
 	}

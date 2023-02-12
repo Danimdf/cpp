@@ -17,6 +17,7 @@ class PhoneBook {
 		void SearchSpecificContact(std::string index);
 		std::string LenghtOnlyTenChars(std::string word);
 		std::string addPeriod(std::string &word);
+		int StringToNumber(std::string str);
 };
 
 #endif
