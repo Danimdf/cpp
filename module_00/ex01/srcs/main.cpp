@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:33:21 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/12 03:12:01 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:27:02 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <sstream>
+
+std::string NumberToString(int number)
+{
+  std::ostringstream convert;
+  convert << number;
+  return convert.str();
+}
 
 int main()
 {
@@ -24,13 +32,14 @@ int main()
 
 	while (1)
 	{
+		teste1.Print("*************************************************************");
 		teste1.Print("Olá. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
 		getline(std::cin, teste);
 		if (!teste.compare("ADD"))
 		{
 			teste1.Print("Adicionando um contato. Primeiro nome:");
 			getline(std::cin, teste);
-			contact.index = numberContact;
+			contact.index = NumberToString(numberContact);
 			contact.firstName = teste;
 			teste1.Print("Sobrenome:");
 			getline(std::cin, teste);

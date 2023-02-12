@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/12 02:50:09 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:27:20 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void PhoneBook::SearchSpecificContact(std::string index)
 }
 
 bool PhoneBook::ExitPhone() {
-	std::exit(1);
+	std::exit(0);
 }
 
 void PhoneBook::setContact(Contact newContact, int i)
