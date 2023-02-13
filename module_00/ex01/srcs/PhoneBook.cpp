@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/13 00:36:10 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/13 01:14:10 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ void PhoneBook::Add(Contact newContact, int i){
 void PhoneBook::Search(std::string index) {
 	for(int i = 0; i < 7; i++)
 	{
-		Print("| Index | First Name | Last Name | Nick Name |");
-		std::cout << "| " << LenghtOnlyTenChars(contact[i].index) << " | " << LenghtOnlyTenChars(contact[i].firstName) << " | " << LenghtOnlyTenChars(contact[i].lastName) << " | " <<  LenghtOnlyTenChars(contact[i].nickName) << " |" << std::endl;
+		if (contact[i].index.length() > 0)
+		{
+			Print("|   Index   | First Name | Last Name | Nick Name |");
+			std::cout << "|" << LenghtOnlyTenChars(contact[i].index) << "|" << LenghtOnlyTenChars(contact[i].firstName) << "|" << LenghtOnlyTenChars(contact[i].lastName) << "|" <<  LenghtOnlyTenChars(contact[i].nickName) << "|" << std::endl;	
+		}
 	}
 	Print("Você gostaria de ver algum contato especifico? Qual?");
 	getline(std::cin, index);
@@ -45,6 +48,14 @@ std::string PhoneBook::LenghtOnlyTenChars(std::string word)
 	{
 		word = word.substr(0,10);
 		return addPeriod(word);
+	}
+	else
+	{
+		for(size_t i = 0; i < word.length(); i++)
+		{
+			if (word.length() < 10)
+				word = " " + word + " ";
+		}
 	}
 	return (word);
 }
@@ -88,6 +99,8 @@ void PhoneBook::SearchSpecificContact(std::string index)
 			Print(contact[i].firstName);
 			Print(contact[i].lastName);
 			Print(contact[i].nickName);
+			Print(contact[i].phoneNumber);
+			Print(contact[i].darkestSecret);
 		}
 	}
 }
@@ -102,4 +115,6 @@ void PhoneBook::setContact(Contact newContact, int i)
 	contact[i].firstName = newContact.firstName;
 	contact[i].lastName = newContact.lastName;
 	contact[i].nickName = newContact.nickName;
+	contact[i].phoneNumber = newContact.phoneNumber;
+	contact[i].darkestSecret = newContact.darkestSecret;
 }

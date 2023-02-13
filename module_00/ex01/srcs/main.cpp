@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:33:21 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/12 17:02:25 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/13 00:49:52 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,42 @@
 
 int main()
 {
-	std::string teste;
-	PhoneBook teste1;
+	std::string input;
+	PhoneBook phonebook;
 	Contact contact;
 	int numberContact = 0;
 
 	while (1)
 	{
-		teste1.Print("*************************************************************");
-		teste1.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
-		getline(std::cin, teste);
-		if (!teste.compare("ADD"))
+		phonebook.Print("*************************************************************");
+		phonebook.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
+		getline(std::cin, input);
+		if (!input.compare("ADD"))
 		{
-			teste1.Print("Adicionando um contato. Primeiro nome:");
-			getline(std::cin, teste);
-			contact.index = teste1.NumberToString(numberContact);
-			contact.firstName = teste;
-			teste1.Print("Sobrenome:");
-			getline(std::cin, teste);
-			contact.lastName = teste;
-			teste1.Print("Agora o seu NickName:");
-			getline(std::cin, teste);
-			contact.nickName = teste;
-			teste1.Add(contact, numberContact);
+			phonebook.Print("Adicionando um contato. Primeiro nome:");
+			getline(std::cin, input);
+			contact.index = phonebook.NumberToString(numberContact);
+			contact.firstName = input;
+			phonebook.Print("Sobrenome:");
+			getline(std::cin, input);
+			contact.lastName = input;
+			phonebook.Print("Agora o seu NickName:");
+			getline(std::cin, input);
+			contact.nickName = input;
+			phonebook.Print("O número de telefone:");
+			getline(std::cin, input);
+			contact.phoneNumber = input;
+			phonebook.Print("Me conte. ME CONTE AGORA, um segredo obscuro:");
+			getline(std::cin, input);
+			contact.darkestSecret = input;
+			phonebook.Add(contact, numberContact);
 			numberContact++;
 		}
-		else if (!teste.compare("SEARCH"))
-			teste1.Search("");
-		else if (!teste.compare("EXIT"))
-			teste1.ExitPhone();
+		else if (!input.compare("SEARCH"))
+			phonebook.Search("");
+		else if (!input.compare("EXIT"))
+			phonebook.ExitPhone();
 		else
-			teste1.Print("Por favor, digite corretamente a palavra da Ação! Lembre-se das letras maiúsculas!");
+			phonebook.Print("Por favor, digite corretamente a palavra da Ação! Lembre-se das letras maiúsculas!");
 	}
 }

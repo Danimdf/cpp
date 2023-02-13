@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 23:22:38 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/11 23:52:01 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/13 00:45:23 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class Contact {
 		std::string firstName;
 		std::string lastName;
 		std::string nickName;
+		std::string phoneNumber;
+		std::string darkestSecret;
 };
 
 #endif
