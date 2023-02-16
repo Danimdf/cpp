@@ -4,6 +4,7 @@ CFLAGS	= -Wall -Werror -Wextra -std=c++98 -g -pedantic
 
 SRC = 	main.cpp\
 		PhoneBook.cpp\
+		Contact.cpp\
 
 VPATH	= srcs
 

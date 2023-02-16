@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/13 01:14:10 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/16 01:04:55 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@ void PhoneBook::Print(std::string phrase)
 	std::cout << phrase << std::endl;
 }
 
-void PhoneBook::Add(Contact newContact, int i){
+void PhoneBook::Add(Contact newContact, int i) {
+	Contact contact;
 	if (i > 7)
-		setContact(newContact, 7);
-	setContact(newContact, i);
+		contact.setContact(contacts, newContact, 7);
+	contact.setContact(contacts, newContact, i);
 }
 
 void PhoneBook::Search(std::string index) {
 	for(int i = 0; i < 7; i++)
 	{
-		if (contact[i].index.length() > 0)
+		if (contacts[i].index.length() > 0)
 		{
 			Print("|   Index   | First Name | Last Name | Nick Name |");
-			std::cout << "|" << LenghtOnlyTenChars(contact[i].index) << "|" << LenghtOnlyTenChars(contact[i].firstName) << "|" << LenghtOnlyTenChars(contact[i].lastName) << "|" <<  LenghtOnlyTenChars(contact[i].nickName) << "|" << std::endl;	
+			std::cout << "|" << LenghtOnlyTenChars(contacts[i].index) << "|" << LenghtOnlyTenChars(contacts[i].firstName) << "|" << LenghtOnlyTenChars(contacts[i].lastName) << "|" <<  LenghtOnlyTenChars(contacts[i].nickName) << "|" << std::endl;	
 		}
 	}
 	Print("Você gostaria de ver algum contato especifico? Qual?");
@@ -93,14 +94,14 @@ void PhoneBook::SearchSpecificContact(std::string index)
 	}
 	for (int i = 0; i < 8; i++)
 	{
-		if (contact[i].index == index)
+		if (contacts[i].index == index)
 		{
-			Print(contact[i].index);
-			Print(contact[i].firstName);
-			Print(contact[i].lastName);
-			Print(contact[i].nickName);
-			Print(contact[i].phoneNumber);
-			Print(contact[i].darkestSecret);
+			Print(contacts[i].index);
+			Print(contacts[i].firstName);
+			Print(contacts[i].lastName);
+			Print(contacts[i].nickName);
+			Print(contacts[i].phoneNumber);
+			Print(contacts[i].darkestSecret);
 		}
 	}
 }
@@ -109,12 +110,4 @@ bool PhoneBook::ExitPhone() {
 	std::exit(0);
 }
 
-void PhoneBook::setContact(Contact newContact, int i)
-{
-	contact[i].index = newContact.index;
-	contact[i].firstName = newContact.firstName;
-	contact[i].lastName = newContact.lastName;
-	contact[i].nickName = newContact.nickName;
-	contact[i].phoneNumber = newContact.phoneNumber;
-	contact[i].darkestSecret = newContact.darkestSecret;
-}
+
