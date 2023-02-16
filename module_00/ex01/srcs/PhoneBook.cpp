@@ -6,40 +6,78 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/16 01:04:55 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/02/16 23:58:37 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
 #include <stdlib.h>
 #include <sstream>
+#include <iomanip>
 
 void PhoneBook::Print(std::string phrase)
 {
 	std::cout << phrase << std::endl;
 }
 
+void PhoneBook::PrintColTable(std::string* cols, int numCols, int colWidth)
+{
+	for (int i = 0; i < numCols; i++)
+		std::cout << std::setw(colWidth) << std::left << cols[i] << " | ";
+	std::cout << std::endl;
+}
+
+void PhoneBook::PrintSeparate(int numCols, int colWidth)
+{
+	for (int i = 0; i < numCols; i++)
+		std::cout << std::setfill('-') << std::setw(colWidth) << "-" << "-+-";
+	std::cout << std::endl;
+}
+
 void PhoneBook::Add(Contact newContact, int i) {
 	Contact contact;
 	if (i > 7)
-		contact.setContact(contacts, newContact, 7);
-	contact.setContact(contacts, newContact, i);
+		contact.SetContact(contacts, newContact, 7);
+	contact.SetContact(contacts, newContact, i);
+}
+
+void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
+{
+	int i = 0;
+	while (i < size)
+  	{
+		for (int j = 0; j < numCols && i < size; j++, i++)
+		{
+			if (data[i].index.length() > 0)
+			{
+				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << i << " | ";
+				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
+				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
+				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
+				std::cout << std::endl;
+				PrintSeparate(numCols, colWidth);
+			}
+		}
+	}
 }
 
 void PhoneBook::Search(std::string index) {
-	for(int i = 0; i < 7; i++)
-	{
-		if (contacts[i].index.length() > 0)
-		{
-			Print("|   Index   | First Name | Last Name | Nick Name |");
-			std::cout << "|" << LenghtOnlyTenChars(contacts[i].index) << "|" << LenghtOnlyTenChars(contacts[i].firstName) << "|" << LenghtOnlyTenChars(contacts[i].lastName) << "|" <<  LenghtOnlyTenChars(contacts[i].nickName) << "|" << std::endl;	
-		}
-	}
+	printTable(contacts, 8);
 	Print("Você gostaria de ver algum contato especifico? Qual?");
 	getline(std::cin, index);
+	std::cout << std::endl;
 	SearchSpecificContact(index);
+}
+
+void PhoneBook::printTable(Contact data[], int size) {
+	const int numCols = 4;
+	const int colWidth = 10;
+	std::string cols[] = {"Index", "First Name", "Last Name", "Nick Name"};
+
+	PrintColTable(cols, numCols, colWidth);
+	PrintSeparate(numCols, colWidth);
+	PrintData(size, numCols, colWidth, data);
 }
 
 std::string PhoneBook::LenghtOnlyTenChars(std::string word)
@@ -48,7 +86,7 @@ std::string PhoneBook::LenghtOnlyTenChars(std::string word)
 	if (numberChars >= 10)
 	{
 		word = word.substr(0,10);
-		return addPeriod(word);
+		return AddPeriod(word);
 	}
 	else
 	{
@@ -61,7 +99,7 @@ std::string PhoneBook::LenghtOnlyTenChars(std::string word)
 	return (word);
 }
 
-std::string PhoneBook::addPeriod(std::string &word)
+std::string PhoneBook::AddPeriod(std::string &word)
 {
   int length = word.length();
   word[length - 1] = '.';
@@ -85,6 +123,8 @@ int PhoneBook::StringToNumber(std::string str)
 
 void PhoneBook::SearchSpecificContact(std::string index)
 {
+	Contact contact;
+	
 	int numberIndex = StringToNumber(index);
 	if (numberIndex > 8 || numberIndex < 0)
 	{
@@ -92,22 +132,9 @@ void PhoneBook::SearchSpecificContact(std::string index)
 		Print("Esse index não existe em sua Agenda. Por favor, escolha conforme a tabela.");
 		Search("");
 	}
-	for (int i = 0; i < 8; i++)
-	{
-		if (contacts[i].index == index)
-		{
-			Print(contacts[i].index);
-			Print(contacts[i].firstName);
-			Print(contacts[i].lastName);
-			Print(contacts[i].nickName);
-			Print(contacts[i].phoneNumber);
-			Print(contacts[i].darkestSecret);
-		}
-	}
+	contact.PrintContact(contacts, index);
 }
 
 bool PhoneBook::ExitPhone() {
 	std::exit(0);
 }
-
-
