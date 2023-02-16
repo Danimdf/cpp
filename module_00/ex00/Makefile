@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
+#    By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/26 22:11:06 by coder             #+#    #+#              #
-#    Updated: 2023/02/01 02:01:22 by coder            ###   ########.fr        #
+#    Updated: 2023/02/17 00:06:33 by Dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ clean:
 
 fclean:	clean
 		$(RM) $(NAME)
+		rmdir $(OBJ_DIR)
 
 re:		fclean all
 
