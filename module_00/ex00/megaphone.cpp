@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 22:39:46 by coder             #+#    #+#             */
-/*   Updated: 2023/02/09 02:39:57 by coder            ###   ########.fr       */
+/*   Updated: 2023/06/08 16:04:02 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdlib.h>
+#include <sstream>
+#include <iomanip>
 
 class Speaker {
 	public: 
@@ -53,13 +56,18 @@ class Speaker {
 int main(int argc, char *argv[])
 {
 	std::string phraseSet;
+	std::string finalSetence;
 	Speaker speaker;
 	
-	if (argc != 2)
+	if (argc < 2)
 	{
 		speaker.Print("* LOUD AND UNBEARABLE FEEDBACK NOISE *");
 		return 1;
 	}
-	phraseSet = speaker.ToUpperCase(argv[1]);
-	speaker.Print(phraseSet);
+	for(int i = 1; i < argc; i++)
+	{
+		phraseSet = speaker.ToUpperCase(argv[i]);
+		finalSetence += phraseSet + " ";
+	}
+	speaker.Print(finalSetence);
 }
