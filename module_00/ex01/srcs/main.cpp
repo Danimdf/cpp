@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:33:21 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/13 00:49:52 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/06/28 00:37:03 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include <string>
 #include <stdlib.h>
 
+std::string GetInput() {
+	std::string input;
+	
+	getline(std::cin, input);
+	return input;
+}
 
 int main()
 {
@@ -22,30 +28,25 @@ int main()
 	PhoneBook phonebook;
 	Contact contact;
 	int numberContact = 0;
-
+	
 	while (1)
 	{
 		phonebook.Print("*************************************************************");
 		phonebook.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
-		getline(std::cin, input);
+		input = GetInput();
 		if (!input.compare("ADD"))
 		{
 			phonebook.Print("Adicionando um contato. Primeiro nome:");
-			getline(std::cin, input);
 			contact.index = phonebook.NumberToString(numberContact);
-			contact.firstName = input;
+			contact.firstName = GetInput();
 			phonebook.Print("Sobrenome:");
-			getline(std::cin, input);
-			contact.lastName = input;
+			contact.lastName = GetInput();
 			phonebook.Print("Agora o seu NickName:");
-			getline(std::cin, input);
-			contact.nickName = input;
+			contact.nickName = GetInput();
 			phonebook.Print("O número de telefone:");
-			getline(std::cin, input);
-			contact.phoneNumber = input;
+			contact.phoneNumber = GetInput();
 			phonebook.Print("Me conte. ME CONTE AGORA, um segredo obscuro:");
-			getline(std::cin, input);
-			contact.darkestSecret = input;
+			contact.darkestSecret = GetInput();
 			phonebook.Add(contact, numberContact);
 			numberContact++;
 		}

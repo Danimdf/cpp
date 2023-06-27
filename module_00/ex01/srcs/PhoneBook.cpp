@@ -6,7 +6,7 @@
 /*   By: Dmonteir < dmonteir@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:35:49 by Dmonteir          #+#    #+#             */
-/*   Updated: 2023/02/16 23:58:37 by Dmonteir         ###   ########.fr       */
+/*   Updated: 2023/06/28 00:37:53 by Dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void PhoneBook::Add(Contact newContact, int i) {
 	Contact contact;
 	if (i > 7)
 		contact.SetContact(contacts, newContact, 7);
-	contact.SetContact(contacts, newContact, i);
+	else 
+		contact.SetContact(contacts, newContact, i);
 }
 
 void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
@@ -57,6 +58,7 @@ void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
 				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
 				std::cout << std::endl;
 				PrintSeparate(numCols, colWidth);
+				i++;
 			}
 		}
 	}
@@ -72,8 +74,8 @@ void PhoneBook::Search(std::string index) {
 
 void PhoneBook::printTable(Contact data[], int size) {
 	const int numCols = 4;
-	const int colWidth = 10;
-	std::string cols[] = {"Index", "First Name", "Last Name", "Nick Name"};
+	const int colWidth = 11;
+	std::string cols[] = {"Index ", "First Name ", "Last Name ", "Nick Name "};
 
 	PrintColTable(cols, numCols, colWidth);
 	PrintSeparate(numCols, colWidth);
