@@ -12,8 +12,11 @@
 
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
+
 #include <string>
+#include <csignal>
 #include <stdlib.h>
+
 
 std::string GetInput()
 {
@@ -30,15 +33,19 @@ std::string GetInput()
 	return input;
 }
 
-int main()
+void CheckInputStr()
 {
 	std::string input;
 	PhoneBook phonebook;
 	Contact contact;
 	int numberContact = 0;
-
 	while (1)
 	{
+		if(std::cin.eof())
+		{
+			phonebook.Print("Comando EOF. O programa será fechado!");
+			exit(1);
+		}
 		phonebook.Print("*************************************************************");
 		phonebook.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
 		input = GetInput();
@@ -65,3 +72,16 @@ int main()
 			phonebook.Print("Por favor, digite corretamente a palavra da Ação! Lembre-se das letras maiúsculas!");
 	}
 }
+
+void DisableSignals()
+{
+	for (int signum = 1; signum < NSIG; ++signum)
+		signal(signum, SIG_IGN);
+}
+
+int main()
+{
+	DisableSignals();
+	CheckInputStr();
+}
+

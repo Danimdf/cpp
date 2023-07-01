@@ -123,10 +123,12 @@ void PhoneBook::SearchSpecificContact(std::string index)
 	Contact contact;
 
 	int numberIndex = StringToNumber(index);
-	if (numberIndex > 8 || numberIndex < 0)
+	if (numberIndex > 8 || numberIndex < 0 || contacts[numberIndex].index != index)
 	{
-		Print("*************************************************************");
+		Print("**************************************************************************");
 		Print("Esse index não existe em sua Agenda. Por favor, escolha conforme a tabela.");
+		Print("**************************************************************************");
+		//std::cout << std::endl;
 		Search("");
 	}
 	contact.PrintContact(contacts, index);
