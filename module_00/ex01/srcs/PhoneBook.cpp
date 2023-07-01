@@ -39,28 +39,20 @@ void PhoneBook::Add(Contact newContact, int i) {
 	Contact contact;
 	if (i > 7)
 		contact.SetContact(contacts, newContact, 7);
-	else 
+	else
 		contact.SetContact(contacts, newContact, i);
 }
 
 void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
 {
-	int i = 0;
-	while (i < size)
-  	{
-		for (int j = 0; j < numCols && i < size; j++, i++)
-		{
-			if (data[i].index.length() > 0)
-			{
-				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << i << " | ";
-				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
-				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
-				std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
-				std::cout << std::endl;
-				PrintSeparate(numCols, colWidth);
-				i++;
-			}
-		}
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << data[i].index << " | ";
+		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
+		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
+		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
+		std::cout << std::endl;
+		PrintSeparate(numCols, colWidth);
 	}
 }
 
@@ -126,7 +118,7 @@ int PhoneBook::StringToNumber(std::string str)
 void PhoneBook::SearchSpecificContact(std::string index)
 {
 	Contact contact;
-	
+
 	int numberIndex = StringToNumber(index);
 	if (numberIndex > 8 || numberIndex < 0)
 	{

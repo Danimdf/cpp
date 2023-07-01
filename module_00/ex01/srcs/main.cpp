@@ -17,7 +17,7 @@
 
 std::string GetInput() {
 	std::string input;
-	
+
 	getline(std::cin, input);
 	return input;
 }
@@ -28,7 +28,7 @@ int main()
 	PhoneBook phonebook;
 	Contact contact;
 	int numberContact = 0;
-	
+
 	while (1)
 	{
 		phonebook.Print("*************************************************************");
