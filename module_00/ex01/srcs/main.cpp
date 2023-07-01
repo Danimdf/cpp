@@ -15,10 +15,18 @@
 #include <string>
 #include <stdlib.h>
 
-std::string GetInput() {
+std::string GetInput()
+{
+	PhoneBook phonebook;
 	std::string input;
 
-	getline(std::cin, input);
+	while(getline(std::cin, input))
+	{
+		if(input != "")
+			break;
+		else
+			phonebook.Print("Por favor, preencha o campo de sua agenda.");
+	}
 	return input;
 }
 

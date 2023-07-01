@@ -47,12 +47,15 @@ void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
 {
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << data[i].index << " | ";
-		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
-		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
-		std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
-		std::cout << std::endl;
-		PrintSeparate(numCols, colWidth);
+		if (data[i].firstName != "")
+		{
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << data[i].index << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
+			std::cout << std::endl;
+			PrintSeparate(numCols, colWidth);
+		}
 	}
 }
 
