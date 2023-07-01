@@ -16,7 +16,9 @@
 
 void Contact::SetContact(Contact cont[], Contact newContact, int i)
 {
-	cont[i].index = newContact.index;
+	PhoneBook phonebook;
+
+	cont[i].index = phonebook.NumberToString(i);
 	cont[i].firstName = newContact.firstName;
 	cont[i].lastName = newContact.lastName;
 	cont[i].nickName = newContact.nickName;

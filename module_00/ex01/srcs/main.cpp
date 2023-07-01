@@ -45,7 +45,6 @@ int main()
 		if (!input.compare("ADD"))
 		{
 			phonebook.Print("Adicionando um contato. Primeiro nome:");
-			contact.index = phonebook.NumberToString(numberContact);
 			contact.firstName = GetInput();
 			phonebook.Print("Sobrenome:");
 			contact.lastName = GetInput();
