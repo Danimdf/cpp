@@ -128,7 +128,6 @@ void PhoneBook::SearchSpecificContact(std::string index)
 		Print("**************************************************************************");
 		Print("Esse index não existe em sua Agenda. Por favor, escolha conforme a tabela.");
 		Print("**************************************************************************");
-		//std::cout << std::endl;
 		Search("");
 	}
 	contact.PrintContact(contacts, index);
