@@ -16,14 +16,15 @@
 # define CONTACT_H
 class Contact {
 	public:
+		void SetContact(Contact cont[], Contact newContact, int i);
+		void PrintContact(Contact contacts[], std::string index);
+	private:
 		std::string index;
 		std::string firstName;
 		std::string lastName;
 		std::string nickName;
 		std::string phoneNumber;
 		std::string darkestSecret;
-		void SetContact(Contact cont[], Contact newContact, int i);
-		void PrintContact(Contact contacts[], std::string index);
 };
 
 #endif

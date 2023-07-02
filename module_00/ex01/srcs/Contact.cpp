@@ -33,13 +33,13 @@ void Contact::PrintContact(Contact contacts[], std::string index)
 	{
 		if (contacts[i].index == index)
 		{
-			phonebook.Print("Informações do contato escolhido:");
+			phonebook.Print("Information of the selected contact:");
 			phonebook.Print("Index: " + contacts[i].index);
-			phonebook.Print("Primeiro Nome: " + contacts[i].firstName);
-			phonebook.Print("Sobrenome: " + contacts[i].lastName);
+			phonebook.Print("First name: " + contacts[i].firstName);
+			phonebook.Print("Last name: " + contacts[i].lastName);
 			phonebook.Print("NickName: " + contacts[i].nickName);
-			phonebook.Print("Telefone: " + contacts[i].phoneNumber);
-			phonebook.Print("Segredo: " + contacts[i].darkestSecret);
+			phonebook.Print("Phone number: " + contacts[i].phoneNumber);
+			phonebook.Print("Darkest secret: " + contacts[i].darkestSecret);
 		}
 	}
 }

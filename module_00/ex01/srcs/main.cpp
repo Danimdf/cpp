@@ -28,7 +28,7 @@ std::string GetInput()
 		if(input != "")
 			break;
 		else
-			phonebook.Print("Por favor, preencha o campo de sua agenda.");
+			phonebook.Print("Please fill in the field in your phonebook.");
 	}
 	return input;
 }
@@ -43,23 +43,23 @@ void CheckInputStr()
 	{
 		if(std::cin.eof())
 		{
-			phonebook.Print("Comando EOF. O programa será fechado!");
-			exit(1);
+			phonebook.Print("The command 'EOF' indicates the end of the input or file. The program will be closed as requested.");
+			exit(0);
 		}
 		phonebook.Print("*************************************************************");
-		phonebook.Print("Olá, está é sua Agenda. Você pode escolher entre três ações: ADD, SEARCH e EXIT!");
+		phonebook.Print("Hello, this is your Phonebook. You can choose from three actions: ADD, SEARCH, and EXIT!");
 		input = GetInput();
 		if (!input.compare("ADD"))
 		{
-			phonebook.Print("Adicionando um contato. Primeiro nome:");
+			phonebook.Print("Adding a contact. First name:");
 			contact.firstName = GetInput();
-			phonebook.Print("Sobrenome:");
+			phonebook.Print("Last name:");
 			contact.lastName = GetInput();
-			phonebook.Print("Agora o seu NickName:");
+			phonebook.Print("NickName:");
 			contact.nickName = GetInput();
-			phonebook.Print("O número de telefone:");
+			phonebook.Print("Phone number:");
 			contact.phoneNumber = GetInput();
-			phonebook.Print("Me conte. ME CONTE AGORA, um segredo obscuro:");
+			phonebook.Print("A darkest secret:");
 			contact.darkestSecret = GetInput();
 			phonebook.Add(contact, numberContact);
 			numberContact++;
@@ -69,7 +69,7 @@ void CheckInputStr()
 		else if (!input.compare("EXIT"))
 			phonebook.ExitPhone();
 		else
-			phonebook.Print("Por favor, digite corretamente a palavra da Ação! Lembre-se das letras maiúsculas!");
+			phonebook.Print("Please enter the action word correctly! Remember to use capital letters!");
 	}
 }
 

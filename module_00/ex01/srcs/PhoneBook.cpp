@@ -61,7 +61,7 @@ void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
 
 void PhoneBook::Search(std::string index) {
 	printTable(contacts, 8);
-	Print("Você gostaria de ver algum contato especifico? Qual?");
+	Print("Would you like to view a specific contact? What is the index");
 	getline(std::cin, index);
 	std::cout << std::endl;
 	SearchSpecificContact(index);
@@ -125,9 +125,9 @@ void PhoneBook::SearchSpecificContact(std::string index)
 	int numberIndex = StringToNumber(index);
 	if (numberIndex > 8 || numberIndex < 0 || contacts[numberIndex].index != index)
 	{
-		Print("**************************************************************************");
-		Print("Esse index não existe em sua Agenda. Por favor, escolha conforme a tabela.");
-		Print("**************************************************************************");
+		Print("**********************************************************************************");
+		Print("That index does not exist in your phonebook. Please choose according to the table.");
+		Print("**********************************************************************************");
 		Search("");
 	}
 	contact.PrintContact(contacts, index);
