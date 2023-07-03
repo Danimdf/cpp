@@ -17,10 +17,10 @@ class PhoneBook {
 		std::string LenghtOnlyTenChars(std::string word);
 		std::string AddPeriod(std::string &word);
 		int StringToNumber(std::string str);
-		void printTable(Contact data[], int size);
+		void printTable(int size);
 		void PrintColTable(std::string* cols, int numCols, int colWidth);
 		void PrintSeparate(int numCols, int colWidth);
-		void PrintData(int size, int numCols, int colWidth, Contact data[]);
+		void PrintData(int size, int numCols, int colWidth);
 };
 
 #endif

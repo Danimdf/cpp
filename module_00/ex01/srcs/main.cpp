@@ -51,16 +51,7 @@ void CheckInputStr()
 		input = GetInput();
 		if (!input.compare("ADD"))
 		{
-			phonebook.Print("Adding a contact. First name:");
-			contact.firstName = GetInput();
-			phonebook.Print("Last name:");
-			contact.lastName = GetInput();
-			phonebook.Print("NickName:");
-			contact.nickName = GetInput();
-			phonebook.Print("Phone number:");
-			contact.phoneNumber = GetInput();
-			phonebook.Print("A darkest secret:");
-			contact.darkestSecret = GetInput();
+			//contact = contact.GetContact(contact);
 			phonebook.Add(contact, numberContact);
 			numberContact++;
 		}

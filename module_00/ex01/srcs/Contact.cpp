@@ -14,6 +14,22 @@
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
 
+void Contact::GetContact()
+{
+	PhoneBook phonebook;
+	phonebook.Print("Adding a contact. First name:");
+	/*contact.firstName = GetInput();
+	phonebook.Print("Last name:");
+	contact.lastName = GetInput();
+	phonebook.Print("NickName:");
+	contact.nickName = GetInput();
+	phonebook.Print("Phone number:");
+	contact.phoneNumber = GetInput();
+	phonebook.Print("A darkest secret:");
+	contact.darkestSecret = GetInput();
+	*/
+}
+
 void Contact::SetContact(Contact cont[], Contact newContact, int i)
 {
 	PhoneBook phonebook;

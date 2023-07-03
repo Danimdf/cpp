@@ -43,11 +43,16 @@ void PhoneBook::Add(Contact newContact, int i) {
 		contact.SetContact(contacts, newContact, i);
 }
 
-void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
+void PhoneBook::PrintData(int size, int numCols, int colWidth)
 {
+
 	for (int i = 0; i < size; i++)
 	{
-		if (data[i].firstName != "")
+		Print(NumberToString(numCols));
+		Print(NumberToString(colWidth));
+
+
+		/*if (data[i].firstName != "")
 		{
 			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << data[i].index << " | ";
 			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
@@ -55,26 +60,26 @@ void PhoneBook::PrintData(int size, int numCols, int colWidth, Contact data[])
 			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
 			std::cout << std::endl;
 			PrintSeparate(numCols, colWidth);
-		}
+		}*/
 	}
 }
 
 void PhoneBook::Search(std::string index) {
-	printTable(contacts, 8);
+	printTable(8);
 	Print("Would you like to view a specific contact? What is the index");
 	getline(std::cin, index);
 	std::cout << std::endl;
 	SearchSpecificContact(index);
 }
 
-void PhoneBook::printTable(Contact data[], int size) {
+void PhoneBook::printTable(int size) {
 	const int numCols = 4;
 	const int colWidth = 11;
 	std::string cols[] = {"Index ", "First Name ", "Last Name ", "Nick Name "};
 
 	PrintColTable(cols, numCols, colWidth);
 	PrintSeparate(numCols, colWidth);
-	PrintData(size, numCols, colWidth, data);
+	PrintData(size, numCols, colWidth);
 }
 
 std::string PhoneBook::LenghtOnlyTenChars(std::string word)
@@ -122,14 +127,14 @@ void PhoneBook::SearchSpecificContact(std::string index)
 {
 	Contact contact;
 
-	int numberIndex = StringToNumber(index);
-	if (numberIndex > 8 || numberIndex < 0 || contacts[numberIndex].index != index)
+	//int numberIndex = StringToNumber(index);
+	/*if (numberIndex > 8 || numberIndex < 0 || contacts[numberIndex].index != index)
 	{
 		Print("**********************************************************************************");
 		Print("That index does not exist in your phonebook. Please choose according to the table.");
 		Print("**********************************************************************************");
 		Search("");
-	}
+	}*/
 	contact.PrintContact(contacts, index);
 }
 

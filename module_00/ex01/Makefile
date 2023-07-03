@@ -25,16 +25,14 @@ OBJ_DIR	= ./obj
 
 RM		= rm -rf
 
-all:		obj_dir $(NAME)
+all:		$(NAME)
 
-$(NAME):	obj_dir $(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME):	$(OBJ)
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o:	%.cpp
-		$(CC) $(CFLAGS) -c $< -o $@
-
-obj_dir:
-		mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		$(RM) $(OBJ)

@@ -18,6 +18,7 @@ class Contact {
 	public:
 		void SetContact(Contact cont[], Contact newContact, int i);
 		void PrintContact(Contact contacts[], std::string index);
+		void GetContact();
 	private:
 		std::string index;
 		std::string firstName;
