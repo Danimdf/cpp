@@ -35,32 +35,36 @@ void PhoneBook::PrintSeparate(int numCols, int colWidth)
 	std::cout << std::endl;
 }
 
-void PhoneBook::Add(Contact newContact, int i) {
+void PhoneBook::AddContact(int i)
+{
 	Contact contact;
-	if (i > 7)
-		contact.SetContact(contacts, newContact, 7);
-	else
-		contact.SetContact(contacts, newContact, i);
+
+	Print("Adding a contact. First name:");
+	this->contacts[i].SetIndex(NumberToString(i));
+	this->contacts[i].SetFirstName(contact.GetInput());
+	Print("Last name:");
+	this->contacts[i].SetLastName(contact.GetInput());
+	Print("NickName:");
+	this->contacts[i].SetNickName(contact.GetInput());
+	Print("Phone number:");
+	this->contacts[i].SetPhoneNumber(contact.GetInput());
+	Print("A darkest secret:");
+	this->contacts[i].SetDarkestSecret(contact.GetInput());
 }
 
 void PhoneBook::PrintData(int size, int numCols, int colWidth)
 {
-
 	for (int i = 0; i < size; i++)
 	{
-		Print(NumberToString(numCols));
-		Print(NumberToString(colWidth));
-
-
-		/*if (data[i].firstName != "")
+		if (this->contacts[i].GetFirstName() != "")
 		{
-			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << data[i].index << " | ";
-			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].firstName) << " | ";
-			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].lastName) << " | ";
-			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(data[i].nickName) << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << this->contacts[i].GetIndex() << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(this->contacts[i].GetFirstName()) << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(this->contacts[i].GetLastName()) << " | ";
+			std::cout << std::setfill(' ') << std::setw(colWidth) << std::left << LenghtOnlyTenChars(this->contacts[i].GetNickName()) << " | ";
 			std::cout << std::endl;
 			PrintSeparate(numCols, colWidth);
-		}*/
+		}
 	}
 }
 
@@ -127,15 +131,33 @@ void PhoneBook::SearchSpecificContact(std::string index)
 {
 	Contact contact;
 
-	//int numberIndex = StringToNumber(index);
-	/*if (numberIndex > 8 || numberIndex < 0 || contacts[numberIndex].index != index)
+	int numberIndex = StringToNumber(index);
+	if (numberIndex > 8 || numberIndex < 0 || this->contacts[numberIndex].GetIndex() != index)
 	{
 		Print("**********************************************************************************");
 		Print("That index does not exist in your phonebook. Please choose according to the table.");
 		Print("**********************************************************************************");
 		Search("");
-	}*/
-	contact.PrintContact(contacts, index);
+	}
+	PrintContact(index);
+}
+
+void PhoneBook::PrintContact(std::string index)
+{
+	PhoneBook phonebook;
+	for (int i = 0; i < 8; i++)
+	{
+		if (this->contacts[i].GetIndex() == index)
+		{
+			Print("Information of the selected contact:");
+			Print("Index: " + this->contacts->GetIndex());
+			Print("First name: " + this->contacts[i].GetFirstName());
+			Print("Last name: " + this->contacts[i].GetLastName());
+			Print("NickName: " + this->contacts[i].GetNickName());
+			Print("Phone number: " + this->contacts[i].GetPhoneNumber());
+			Print("Darkest secret: " + this->contacts[i].GetDarkestSecret());
+		}
+	}
 }
 
 bool PhoneBook::ExitPhone() {

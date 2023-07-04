@@ -17,8 +17,20 @@
 class Contact {
 	public:
 		void SetContact(Contact cont[], Contact newContact, int i);
-		void PrintContact(Contact contacts[], std::string index);
-		void GetContact();
+		std::string GetInput();
+		std::string GetFirstName();
+		std::string GetLastName();
+		std::string GetNickName();
+		std::string GetPhoneNumber();
+		std::string GetDarkestSecret();
+		std::string GetIndex();
+		void SetFirstName(std::string firstName);
+		void SetLastName(std::string lastName);
+		void SetNickName(std::string nickname);
+		void SetPhoneNumber(std::string phoneNumber);
+		void SetDarkestSecret(std::string darkestSecret);
+		void SetIndex(std::string index);
+
 	private:
 		std::string index;
 		std::string firstName;

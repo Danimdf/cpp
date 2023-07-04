@@ -14,48 +14,67 @@
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
 
-void Contact::GetContact()
+std::string Contact::GetInput()
 {
 	PhoneBook phonebook;
-	phonebook.Print("Adding a contact. First name:");
-	/*contact.firstName = GetInput();
-	phonebook.Print("Last name:");
-	contact.lastName = GetInput();
-	phonebook.Print("NickName:");
-	contact.nickName = GetInput();
-	phonebook.Print("Phone number:");
-	contact.phoneNumber = GetInput();
-	phonebook.Print("A darkest secret:");
-	contact.darkestSecret = GetInput();
-	*/
-}
+	std::string input;
 
-void Contact::SetContact(Contact cont[], Contact newContact, int i)
-{
-	PhoneBook phonebook;
-
-	cont[i].index = phonebook.NumberToString(i);
-	cont[i].firstName = newContact.firstName;
-	cont[i].lastName = newContact.lastName;
-	cont[i].nickName = newContact.nickName;
-	cont[i].phoneNumber = newContact.phoneNumber;
-	cont[i].darkestSecret = newContact.darkestSecret;
-}
-
-void Contact::PrintContact(Contact contacts[], std::string index)
-{
-	PhoneBook phonebook;
-	for (int i = 0; i < 8; i++)
+	while(getline(std::cin, input))
 	{
-		if (contacts[i].index == index)
-		{
-			phonebook.Print("Information of the selected contact:");
-			phonebook.Print("Index: " + contacts[i].index);
-			phonebook.Print("First name: " + contacts[i].firstName);
-			phonebook.Print("Last name: " + contacts[i].lastName);
-			phonebook.Print("NickName: " + contacts[i].nickName);
-			phonebook.Print("Phone number: " + contacts[i].phoneNumber);
-			phonebook.Print("Darkest secret: " + contacts[i].darkestSecret);
-		}
+		if(input != "")
+			break;
+		else
+			phonebook.Print("Please fill in the field in your phonebook.");
 	}
+	return input;
+}
+
+void Contact::SetFirstName(std::string firstName)
+{
+	this->firstName = firstName;
+}
+
+void Contact::SetLastName(std::string lastName)
+{
+	this->lastName = lastName;
+}
+
+void Contact::SetNickName(std::string nickName)
+{
+	this->nickName = nickName;
+}
+
+void Contact::SetPhoneNumber(std::string phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
+}
+
+void Contact::SetDarkestSecret(std::string darkestSecret)
+{
+	this->darkestSecret = darkestSecret;
+}
+
+void Contact::SetIndex(std::string index)
+{
+	this->index = index;
+}
+
+std::string Contact::GetFirstName() {
+	return firstName;
+}
+
+std::string Contact::GetLastName() {
+	return lastName;
+}
+
+std::string Contact::GetNickName() {
+	return nickName;
+}
+
+std::string Contact::GetPhoneNumber() {
+	return phoneNumber;
+}
+
+std::string Contact::GetDarkestSecret() {
+	return darkestSecret;
 }

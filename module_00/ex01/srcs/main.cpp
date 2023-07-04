@@ -18,21 +18,6 @@
 #include <stdlib.h>
 
 
-std::string GetInput()
-{
-	PhoneBook phonebook;
-	std::string input;
-
-	while(getline(std::cin, input))
-	{
-		if(input != "")
-			break;
-		else
-			phonebook.Print("Please fill in the field in your phonebook.");
-	}
-	return input;
-}
-
 void CheckInputStr()
 {
 	std::string input;
@@ -48,11 +33,10 @@ void CheckInputStr()
 		}
 		phonebook.Print("*************************************************************");
 		phonebook.Print("Hello, this is your Phonebook. You can choose from three actions: ADD, SEARCH, and EXIT!");
-		input = GetInput();
+		input = contact.GetInput();
 		if (!input.compare("ADD"))
 		{
-			//contact = contact.GetContact(contact);
-			phonebook.Add(contact, numberContact);
+			phonebook.AddContact(numberContact);
 			numberContact++;
 		}
 		else if (!input.compare("SEARCH"))

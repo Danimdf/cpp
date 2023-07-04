@@ -7,7 +7,7 @@ class PhoneBook {
 	public:
 		Contact contacts[8];
 		void Print(std::string phrase);
-		void Add(Contact newContact, int i);
+		void AddContact(int i);
 		void Search(std::string index);
 		bool ExitPhone(void);
 		std::string NumberToString(int number);
@@ -21,6 +21,8 @@ class PhoneBook {
 		void PrintColTable(std::string* cols, int numCols, int colWidth);
 		void PrintSeparate(int numCols, int colWidth);
 		void PrintData(int size, int numCols, int colWidth);
+		void PrintContact(std::string index);
+
 };
 
 #endif
