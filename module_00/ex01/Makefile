@@ -12,12 +12,12 @@
 
 NAME	= phonebook
 CC		= c++
-CFLAGS	= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SRC = 	main.cpp\
 		PhoneBook.cpp\
 		Contact.cpp\
 
-VPATH	= srcs
+VPATH	= ./srcs/
 
 OBJ		= $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 OBJ_DIR	= ./obj
@@ -27,11 +27,11 @@ RM		= rm -rf
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o:	%.cpp
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 		$(RM) $(OBJ)

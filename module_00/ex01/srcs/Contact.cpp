@@ -59,6 +59,10 @@ void Contact::SetIndex(std::string index)
 	this->index = index;
 }
 
+std::string Contact::GetIndex() {
+	return index;
+}
+
 std::string Contact::GetFirstName() {
 	return firstName;
 }

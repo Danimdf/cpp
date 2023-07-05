@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
+#include "../includes/Contact.hpp"
 #include <iostream>
 #include <stdlib.h>
 #include <sstream>
