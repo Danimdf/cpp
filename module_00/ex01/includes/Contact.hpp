@@ -16,7 +16,6 @@
 # define CONTACT_H
 class Contact {
 	public:
-		void SetContact(Contact cont[], Contact newContact, int i);
 		std::string GetInput();
 		std::string GetFirstName();
 		std::string GetLastName();
