@@ -29,13 +29,11 @@ all:	$(dir() $(NAME)
 $(NAME):	$(OBJ)
 			$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-
 $(OBJ_DIR)/%.o:	%.cpp
-	$(MAKE) create_obj
+	$(call create_obj)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
-create_obj:
-		mkdir -p $(OBJ_DIR)
+create_obj = @mkdir -p $(OBJ_DIR)
 
 clean:
 		$(RM) $(OBJ)
