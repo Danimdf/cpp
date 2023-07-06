@@ -24,14 +24,18 @@ OBJ_DIR	= ./obj
 
 RM		= rm -rf
 
-all:		$(NAME)
+all:	$(dir() $(NAME)
 
 $(NAME):	$(OBJ)
 			$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
+
 $(OBJ_DIR)/%.o:	%.cpp
-	mkdir -p $(OBJ_DIR)
+	$(MAKE) create_obj
 	$(CC) $(CPPFLAGS) -c $< -o $@
+
+create_obj:
+		mkdir -p $(OBJ_DIR)
 
 clean:
 		$(RM) $(OBJ)

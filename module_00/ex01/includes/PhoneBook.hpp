@@ -6,11 +6,8 @@
 class PhoneBook {
 	public:
 		Contact contacts[8];
+		void CheckInputStr();
 		void Print(std::string phrase);
-		void AddContact(int i);
-		void Search(std::string index);
-		bool ExitPhone(void);
-		std::string NumberToString(int number);
 
 	private:
 		void SearchSpecificContact(std::string index);
@@ -22,7 +19,10 @@ class PhoneBook {
 		void PrintSeparate(int numCols, int colWidth);
 		void PrintData(int size, int numCols, int colWidth);
 		void PrintContact(std::string index);
-
+		void AddContact(int i);
+		void Search(std::string index);
+		bool ExitPhone(void);
+		std::string NumberToString(int number);
 };
 
 #endif
