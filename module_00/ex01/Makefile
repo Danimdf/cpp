@@ -24,7 +24,7 @@ OBJ_DIR	= ./obj
 
 RM		= rm -rf
 
-all:	$(dir() $(NAME)
+all:	$(NAME)
 
 $(NAME):	$(OBJ)
 			$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
