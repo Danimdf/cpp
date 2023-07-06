@@ -24,6 +24,8 @@ OBJ_DIR	= ./obj
 
 RM		= rm -rf
 
+create_obj = @mkdir -p $(OBJ_DIR)
+
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
@@ -32,8 +34,6 @@ $(NAME):	$(OBJ)
 $(OBJ_DIR)/%.o:	%.cpp
 	$(call create_obj)
 	$(CC) $(CPPFLAGS) -c $< -o $@
-
-create_obj = @mkdir -p $(OBJ_DIR)
 
 clean:
 		$(RM) $(OBJ)
