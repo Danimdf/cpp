@@ -23,11 +23,13 @@ RM		= rm -rf
 
 all:		$(NAME)
 
+create_obj = @mkdir -p $(OBJ_DIR)
+
 $(NAME):	$(OBJ)
 			$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o:	%.cpp
-	mkdir -p $(OBJ_DIR)
+	$(call create_obj)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
