@@ -77,7 +77,7 @@ void PhoneBook::Search(std::string index)
 	getline(std::cin, index);
 	std::cout << std::endl;
 	if (index == "HOME")
-		CheckInputStr();
+		;
 	else if(index == "EXIT")
 		ExitPhone();
 	else
@@ -174,33 +174,33 @@ void PhoneBook::PrintContact(std::string index)
 void PhoneBook::CheckInputStr()
 {
 	std::string input;
-	PhoneBook phonebook;
 	Contact contact;
 	int numberContact = 0;
+
 	while (1)
 	{
 		if(std::cin.eof())
 		{
-			phonebook.Print("The command 'EOF' indicates the end of the input or file. The program will be closed as requested.");
+			Print("The command 'EOF' indicates the end of the input or file. The program will be closed as requested.");
 			exit(0);
 		}
-		phonebook.Print("*************************************************************");
-		phonebook.Print("Hello, this is your Phonebook. You can choose from three actions: ADD, SEARCH, and EXIT!");
+		Print("*************************************************************");
+		Print("Hello, this is your Phonebook. You can choose from three actions: ADD, SEARCH, and EXIT!");
 		input = contact.GetInput();
 		if (!input.compare("ADD"))
 		{
 			if (numberContact < 8)
-				phonebook.AddContact(numberContact);
+				AddContact(numberContact);
 			else
-				phonebook.AddContact(7);
+				AddContact(7);
 			numberContact++;
 		}
 		else if (!input.compare("SEARCH"))
-			phonebook.Search("");
+			Search("");
 		else if (!input.compare("EXIT"))
-			phonebook.ExitPhone();
+			ExitPhone();
 		else
-			phonebook.Print("Please enter the action word correctly! Remember to use capital letters!");
+			Print("Please enter the action word correctly! Remember to use capital letters!");
 	}
 }
 
