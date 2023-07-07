@@ -73,12 +73,12 @@ void PhoneBook::PrintData(int size, int numCols, int colWidth)
 void PhoneBook::Search(std::string index)
 {
 	printTable(8);
-	Print("Would you like to view a specific contact? Options: (index number) (EXIT) (HOME)");
+	Print("Would you like to view a specific contact? Options: (index number) (HOME) (EXIT)");
 	getline(std::cin, index);
 	std::cout << std::endl;
-	if (index == "HOME")
-		;
-	else if(index == "EXIT")
+	if(index == "HOME")
+		return;
+	else if (index == "EXIT")
 		ExitPhone();
 	else
 		SearchSpecificContact(index);

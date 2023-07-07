@@ -12,14 +12,20 @@
 
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
-
 #include <string>
 #include <csignal>
 #include <stdlib.h>
+
+void DisableSignals()
+{
+	for (int signum = 1; signum < NSIG; ++signum)
+		signal(signum, SIG_IGN);
+}
 
 int main()
 {
 	PhoneBook phonebook;
 
+	DisableSignals();
 	phonebook.CheckInputStr();
 }

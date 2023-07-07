@@ -23,6 +23,8 @@ std::string Contact::GetInput()
 	{
 		if(input != "")
 			break;
+		else if (input == "\n")
+			phonebook.Print("Please fill in the field in your phonebook.");
 		else
 			phonebook.Print("Please fill in the field in your phonebook.");
 	}
