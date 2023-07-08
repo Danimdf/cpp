@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 17:23:19 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/08 19:52:44 by dmonteir         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:03:49 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ class HumanB
 	std::string _name;
 	Weapon* _weapon;
 };
-
 #endif
