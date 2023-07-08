@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 19:04:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/08 20:15:22 by dmonteir         ###   ########.fr       */
+/*   Created: 2023/07/08 17:15:57 by dmonteir          #+#    #+#             */
+/*   Updated: 2023/07/08 19:59:19 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
-#include <iostream>
+#include <string>
 
-int main(void)
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+class Weapon
 {
-	int N = 2;
-	Zombie* zombies = zombieHorde(N, "");
+	public:
+	Weapon(std::string type);
+	const std::string &getType() const;
+	void setType(std::string type);
 
-	if (zombies != 0)
-		delete[] zombies;
-	return (0);
-}
+	private:
+	std::string _type;
+};
+#endif

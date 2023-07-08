@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 19:04:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/08 20:15:22 by dmonteir         ###   ########.fr       */
+/*   Created: 2023/07/08 17:21:12 by dmonteir          #+#    #+#             */
+/*   Updated: 2023/07/08 20:04:42 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
-#include <iostream>
+#include "../includes/Weapon.hpp"
 
-int main(void)
+#ifndef HUMAN_A_HPP
+# define HUMAN_A_HPP
+class HumanA
 {
-	int N = 2;
-	Zombie* zombies = zombieHorde(N, "");
+	public:
+	HumanA(std::string name, Weapon& weapon);
+	~HumanA();
+	void attack() const;
 
-	if (zombies != 0)
-		delete[] zombies;
-	return (0);
-}
+	private:
+	std::string _name;
+	Weapon* _weapon;
+};
+#endif
