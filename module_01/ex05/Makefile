@@ -6,16 +6,16 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 19:04:45 by dmonteir          #+#    #+#              #
-#    Updated: 2023/07/09 19:07:37 by dmonteir         ###   ########.fr        #
+#    Updated: 2023/07/09 19:07:56 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= sed
+NAME	= harl
 CC		= c++
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp\
-		SedReplace.cpp\
+		Harl.cpp\
 
 VPATH	= ./srcs/
 

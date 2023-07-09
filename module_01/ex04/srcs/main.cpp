@@ -6,14 +6,13 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:04:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/09 13:29:41 by dmonteir         ###   ########.fr       */
+/*   Updated: 2023/07/09 19:09:18 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/SedReplace.hpp"
 #include <iostream>
 #include <fstream>
-#include <cstring>
 #include <stdlib.h>
 
 void error(std::string str)
@@ -26,7 +25,6 @@ void checkInputs(std::string fileName, std::string str1, std::string str2)
 {
 	if(fileName.empty() || str1.empty() || str2.empty())
 		error("File or words not found.");
-
 }
 
 int main(int argc, char *argv[])
