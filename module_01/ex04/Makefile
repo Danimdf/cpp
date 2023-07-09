@@ -6,7 +6,7 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 19:04:45 by dmonteir          #+#    #+#              #
-#    Updated: 2023/07/08 20:35:15 by dmonteir         ###   ########.fr        #
+#    Updated: 2023/07/09 10:04:20 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC		= c++
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp\
+		SedReplace.cpp\
 
 VPATH	= ./srcs/
 
