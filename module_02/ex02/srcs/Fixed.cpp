@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:23:08 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/12 21:01:59 by dmonteir         ###   ########.fr       */
+/*   Updated: 2023/07/12 21:27:03 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Fixed::~Fixed()
 {
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits() const
 {
 	return this->_fixed_point;
 }
@@ -124,13 +124,13 @@ Fixed Fixed::operator/(const Fixed &f) const
 	return Fixed(this->toFloat() / f.toFloat());
 }
 
-Fixed &Fixed::operator++(void)
+Fixed &Fixed::operator++()
 {
 	this->_fixed_point += 1;
 	return (*this);
 }
 
-Fixed &Fixed::operator--(void)
+Fixed &Fixed::operator--()
 {
 	this->_fixed_point -= 1;
 	return (*this);
