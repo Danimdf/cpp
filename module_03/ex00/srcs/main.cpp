@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 17:21:12 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/09 20:05:59 by dmonteir         ###   ########.fr       */
+/*   Created: 2023/07/07 19:04:55 by dmonteir          #+#    #+#             */
+/*   Updated: 2023/07/16 15:19:40 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
+#include "../includes/Fixed.hpp"
+#include <iostream>
 
-#ifndef HUMAN_A_HPP
-# define HUMAN_A_HPP
-class HumanA
+int main(void)
 {
-	public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA();
-	void attack() const;
 
-	private:
-	std::string _name;
-	Weapon* _weapon;
-};
-#endif
+	return 0;
+}

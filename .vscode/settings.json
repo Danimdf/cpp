@@ -12,6 +12,7 @@
 		"clocale": "cpp",
 		"cmath": "cpp",
 		"complex": "cpp",
+		"csignal": "cpp",
 		"cstdarg": "cpp",
 		"cstddef": "cpp",
 		"cstdint": "cpp",

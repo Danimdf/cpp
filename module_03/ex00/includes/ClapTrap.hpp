@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 17:21:12 by dmonteir          #+#    #+#             */
-/*   Updated: 2023/07/09 20:05:59 by dmonteir         ###   ########.fr       */
+/*   Created: 2023/07/10 19:24:25 by dmonteir          #+#    #+#             */
+/*   Updated: 2023/07/18 20:18:45 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
+#include <iostream>
+#include <ostream>
+#include <string>
 
-#ifndef HUMAN_A_HPP
-# define HUMAN_A_HPP
-class HumanA
+#ifndef FIXED_HPP
+# define FIXED_HPP
+class ClapTrap
 {
 	public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA();
-	void attack() const;
+	ClapTrap();
+	~ClapTrap();
+	ClapTrap(const ClapTrap &value);
+	ClapTrap &operator=(const ClapTrap &value);
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 
 	private:
 	std::string _name;
-	Weapon* _weapon;
+	int _hit_points = 10;
+	int _energy_points = 10;
+	int _attack_damage = 0;
 };
 #endif
